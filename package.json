@@ -1,0 +1,14 @@
+{
+  "name": "tisige",
+  "private": true,
+  "workspaces": [
+    "TISIGE-Mobile"
+  ],
+  "scripts": {
+    "web": "npm run web -w tisige-mobile",
+    "start": "npm run start -w tisige-mobile",
+    "android": "npm run android -w tisige-mobile",
+    "ios": "npm run ios -w tisige-mobile",
+    "build:web": "npm run build:web -w tisige-mobile"
+  }
+}

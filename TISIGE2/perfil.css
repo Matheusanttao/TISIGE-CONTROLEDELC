@@ -1,0 +1,46 @@
+/* Perfil — complementa tisige-theme */
+body {
+  background: var(--bg);
+  margin-top: 0;
+}
+
+.ui-w-80 {
+  width: 80px !important;
+  height: auto;
+}
+
+.btn-default {
+  border-color: var(--border);
+  background: transparent;
+  color: var(--text-muted);
+}
+
+label.btn {
+  margin-bottom: 0;
+}
+
+.btn-outline-primary {
+  border-color: var(--accent);
+  background: transparent;
+  color: var(--accent);
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.text-light {
+  color: var(--text-muted) !important;
+}
+
+.account-settings-fileinput {
+  position: absolute;
+  visibility: hidden;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.senha {
+  text-decoration: none;
+}

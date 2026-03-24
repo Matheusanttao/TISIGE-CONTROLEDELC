@@ -1,0 +1,24 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --color-tisige-bg: #0a0e14;
+  --color-tisige-surface: #121a24;
+  --color-tisige-elevated: #1a2433;
+  --color-tisige-border: rgba(255, 255, 255, 0.08);
+  --color-tisige-accent: #22d3ee;
+  --color-tisige-accent-dim: #0891b2;
+  --color-tisige-text: #f1f5f9;
+  --color-tisige-muted: #94a3b8;
+  --color-tisige-danger: #f87171;
+  --color-tisige-success: #34d399;
+}
+
+html {
+  @apply bg-[var(--color-tisige-bg)] text-[var(--color-tisige-text)];
+  font-family: var(--font-sans);
+}
+
+#root {
+  @apply min-h-dvh;
+}

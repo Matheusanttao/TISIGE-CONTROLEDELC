@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gestão LC final — OS 17242</title>
+    <link rel="stylesheet" href="tisige-theme.css">
+</head>
+<body>
+    <header class="tg-hero">
+        <div>
+            <h1>Gestão — entrega LC final ao comercial</h1>
+            <span class="tg-badge">OS 17242</span>
+        </div>
+    </header>
+
+    <main class="tg-page tg-page--center">
+        <div class="tg-cards" style="margin-bottom: 0.5rem;">
+            <article class="tg-card">
+                <h2 class="tg-card__title">Data limite — testes finais</h2>
+                <p class="tg-card__date">28/03/2024</p>
+                <p class="tg-card__desc">Prazo para o setor de ensaios elétricos concluir todos os testes finais.</p>
+            </article>
+
+            <article class="tg-card">
+                <h2 class="tg-card__title">Data limite — LC ao PCP</h2>
+                <p class="tg-card__date" id="data_pcp"></p>
+                <p class="tg-card__desc">Prazo para ensaios elétricos e mecânica entregarem a LC finalizada ao PCP.</p>
+            </article>
+
+            <article class="tg-card">
+                <h2 class="tg-card__title">Data limite — LC ao comercial</h2>
+                <p class="tg-card__date" id="data_comercial"></p>
+                <p class="tg-card__desc">Prazo para o PCP processar e encaminhar a LC ao setor comercial.</p>
+            </article>
+        </div>
+
+        <div class="tg-actions">
+            <a href="ControleLC.php" class="tg-btn tg-btn--ghost">← Voltar ao controle</a>
+        </div>
+    </main>
+
+    <script>
+        (function () {
+            var dataLimiteTestes = new Date("2024-03-28");
+            var dataPcp = new Date(dataLimiteTestes);
+            dataPcp.setDate(dataPcp.getDate() + 5);
+            document.getElementById("data_pcp").textContent = formatDate(dataPcp);
+
+            var dataComercial = new Date(dataLimiteTestes);
+            dataComercial.setDate(dataComercial.getDate() + 15);
+            document.getElementById("data_comercial").textContent = formatDate(dataComercial);
+
+            function formatDate(date) {
+                var day = date.getDate();
+                var month = date.getMonth() + 1;
+                var year = date.getFullYear();
+                return (day < 10 ? "0" : "") + day + "/" + (month < 10 ? "0" : "") + month + "/" + year;
+            }
+        })();
+    </script>
+</body>
+</html>
