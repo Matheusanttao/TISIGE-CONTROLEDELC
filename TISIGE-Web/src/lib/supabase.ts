@@ -2,9 +2,10 @@ import { createClient } from '@supabase/supabase-js';
 
 const url = (import.meta.env.VITE_SUPABASE_URL ?? '').trim();
 const anon = (import.meta.env.VITE_SUPABASE_ANON_KEY ?? '').trim();
+const configured = url.length > 0 && anon.length > 0;
 
 export function isSupabaseConfigured(): boolean {
-  return url.length > 0 && anon.length > 0;
+  return configured;
 }
 
 export function getSupabaseProjectHost(): string | null {
@@ -38,7 +39,11 @@ export function clearSupabaseAuthStorage(): void {
   if (key) localStorage.removeItem(key);
 }
 
-export const supabase = createClient(url, anon, {
+// Evita crash em runtime quando env está ausente no deploy.
+const safeUrl = configured ? url : 'https://invalid.local';
+const safeAnon = configured ? anon : 'invalid-anon-key';
+
+export const supabase = createClient(safeUrl, safeAnon, {
   auth: {
     storage,
     autoRefreshToken: true,
